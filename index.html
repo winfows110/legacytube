@@ -3,167 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LegacyTube Official Project</title>
+    <title>LegacyTube - The Best YouTube Player for Xperia Tablet</title>
     <style>
-        /* 全体のデザイン設定 */
+        :root {
+            --primary-color: #ff0000; /* YouTube Red */
+            --accent-color: #00e5ff;  /* Xperia Cyan */
+            --bg-color: #0f0f0f;
+            --text-color: #ffffff;
+            --card-bg: #1e1e1e;
+        }
+
         body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
-            color: #333;
+        }
+
+        /* ヒーローセクション */
+        header {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: radial-gradient(circle at center, #2c0000 0%, #0f0f0f 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .logo-text {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #ff0000, #ff6666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0;
-            background-color: #f0f2f5; /* 少し落ち着いた背景色 */
+            padding: 3rem 2rem;
         }
 
-        /* ヘッダー部分：団長の銀髪や甲冑をイメージした配色 */
-        header {
-            background: linear-gradient(135deg, #708090 0%, #2f4f4f 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        /* 特徴セクション */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            letter-spacing: 2px;
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: transform 0.3s;
+            border: 1px solid #333;
         }
 
-        header p {
-            margin: 10px 0 0;
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
         }
 
-        /* コンテンツエリア */
-        .container {
-            padding: 20px;
-        }
-
-        /* 参考サイト風のカードデザイン */
-        .card {
-            background: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid #0078D4; /* Xperiaブルーのアクセント */
-        }
-
-        h2 {
-            color: #0078D4;
+        .feature-card h3 {
+            color: var(--primary-color);
             margin-top: 0;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
+            font-size: 1.5rem;
         }
 
-        /* リストのスタイル */
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        /* ダウンロードボタン：押しやすさ重視 */
-        .download-section {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .download-button {
-            display: inline-block;
-            background: #0078D4;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,120,212,0.3);
-        }
-
-        .download-button:hover {
-            background: #005a9e;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,120,212,0.4);
-        }
-
-        .version-info {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        /* フッター */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #888;
-            font-size: 0.8rem;
-        }
-
-        /* スマホ対応 */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
-            .card { padding: 20px; }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>LegacyTube</h1>
-    <p>〜 古いXperiaを救う、軽量YouTubeプレイヤー 〜</p>
-</header>
-
-<div class="container">
-
-    <div class="card">
-        <h2>プロジェクト概要</h2>
-        <p>LegacyTubeは、Android 5.0 (Lollipop) 世代の端末、特に <strong>Xperia Z2 Tablet</strong> で快適にYouTubeを視聴するために開発されたカスタムWebアプリです。</p>
-        <p>公式アプリが重くなった現代の環境において、必要最低限の機能と圧倒的な軽さを提供します。</p>
-    </div>
-
-    <div class="card">
-        <h2>主な特徴</h2>
-        <ul>
-            <li><strong>広告ブロック搭載：</strong> 独自のJavaScript注入により、視聴を妨げる広告を自動カット。</li>
-            <li><strong>Googleログイン対応：</strong> 独自のUserAgent偽装技術により、セキュリティ制限を回避。</li>
-            <li><strong>超軽量設計：</strong> 余計なバックグラウンド処理を排除し、古いSoCでもサクサク動作。</li>
-            <li><strong>Xperia最適化：</strong> Z2/Z4 Tabletのステレオスピーカーを活かした迫力の音質。</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>ダウンロード</h2>
-        <div class="download-section">
-            <p>最新のリリース版APKはこちらからダウンロードできます。</p>
-            <a href="https://drive.google.com/uc?export=download&id=11QtiChQo27hVkWyXeoHbWaTJCk-gP30O" class="download-button">
-                LegacyTube v1.0.0 をダウンロード
-            </a>
-            <p class="version-info">ファイル形式: APK / サイズ: 軽量ビルド / 署名済み</p>
-        </div>
-    </div>
-
-    <div class="card" style="border-left-color: #708090;">
-        <h2>お願い・免責事項</h2>
-        <p>本アプリは個人開発のプロジェクトです。利用により生じた損害について、作者は一切の責任を負いません。動作報告や感想をいただけると、作者のモチベーションが爆上がりします（特に団長ファンの皆様）。</p>
-    </div>
-
-</div>
-
-<footer>
-    &copy; 2026 LegacyTube Project / Presented by Noelist Engineer<br>
-    Powered by GitHub Pages
-</footer>
-
-</body>
-</html>
+        /* ダウンロードエリア */
+        .download-box {
