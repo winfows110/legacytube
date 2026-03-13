@@ -82,3 +82,100 @@
 
         /* ダウンロードエリア */
         .download-box {
+            text-align: center;
+            background: linear-gradient(135deg, #1e1e1e 0%, #121212 100%);
+            padding: 4rem 2rem;
+            border-radius: 24px;
+            border: 2px solid #333;
+            margin: 4rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.2rem 3.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.5);
+            background-color: #cc0000;
+        }
+
+        .version-info {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            background: #333;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="badge">Experimental Project</div>
+    <h1 class="logo-text">LegacyTube</h1>
+    <p class="subtitle">Android 5.0 世代の Xperia に、再び光を。</p>
+</header>
+
+<div class="container">
+    <section>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🚫 広告を自動カット</h3>
+                <p>内蔵された AdBlock スクリプトにより、動画視聴を邪魔する広告を自動的に除去します。</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔑 ログイン対応</h3>
+                <p>独自の WebView 同期システムを搭載。Android 5.0 でも安全に Google アカウントでログイン可能です。</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔋 軽量・高速</h3>
+                <p>Xperia Z2 / Z4 Tablet のスペックを最大限に活かすため、無駄を削ぎ落とした軽量設計を採用。</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="download-box">
+        <h2>アプリを手に入れる</h2>
+        <p>下のボタンをクリックして、Google ドライブから APK ファイルをダウンロードしてください。</p>
+        <br>
+        <a href="https://drive.google.com/file/d/18TbxRPPCIujzhm70zz_8WwtvFRs3Gafz/view?usp=sharing" target="_blank" class="btn">Download APK</a>
+        <p class="version-info">
+            Version 1.0.0 (Stable) | ターゲット: Android 5.0+<br>
+            対応確認済み: Xperia Z2 Tablet (SGP511/512), Xperia Z4 Tablet
+        </p>
+    </div>
+</div>
+
+<footer>
+    <p>Developed by <strong>hukuoka_555</strong></p>
+    <p>Dedicated to the fans. ⚓️⚔️ Keep coding, Keep dreaming.</p>
+</footer>
+
+</body>
+</html>
