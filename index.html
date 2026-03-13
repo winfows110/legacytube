@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LegacyTube - The Best YouTube Player for Xperia Tablet</title>
+    <title>LegacyTube - Download Center</title>
     <style>
         :root {
-            --primary-color: #ff0000; /* YouTube Red */
-            --accent-color: #00e5ff;  /* Xperia Cyan */
+            --primary-color: #ff4444;
             --bg-color: #0f0f0f;
             --text-color: #ffffff;
             --card-bg: #1e1e1e;
+            --history-line: #444;
         }
 
         body {
@@ -18,163 +18,149 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 0;
             line-height: 1.6;
         }
 
-        /* ヒーローセクション */
         header {
-            padding: 6rem 2rem;
+            padding: 4rem 2rem;
             text-align: center;
-            background: radial-gradient(circle at center, #2c0000 0%, #0f0f0f 100%);
-            border-bottom: 1px solid #333;
-        }
-
-        .logo-text {
-            font-size: 4rem;
-            font-weight: 900;
-            margin: 0;
-            letter-spacing: -2px;
-            background: linear-gradient(to right, #ff0000, #ff6666);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            font-size: 1.4rem;
-            margin-top: 1rem;
-            opacity: 0.9;
-            font-weight: 300;
+            background: linear-gradient(135deg, #2c0000 0%, #0f0f0f 100%);
+            border-bottom: 2px solid var(--primary-color);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        /* 特徴セクション */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
             padding: 2rem;
-            border-radius: 16px;
-            transition: transform 0.3s;
-            border: 1px solid #333;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
+        h2 { border-left: 4px solid var(--primary-color); padding-left: 15px; margin-top: 3rem; }
 
-        .feature-card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-            font-size: 1.5rem;
-        }
-
-        /* ダウンロードエリア */
-        .download-box {
+        /* メインダウンロードボタン */
+        .main-dl {
             text-align: center;
-            background: linear-gradient(135deg, #1e1e1e 0%, #121212 100%);
-            padding: 4rem 2rem;
+            padding: 3.5rem;
+            background: linear-gradient(135deg, #252525 0%, #1a1a1a 100%);
             border-radius: 24px;
-            border: 2px solid #333;
-            margin: 4rem 0;
+            border: 1px solid #333;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--primary-color);
+            background: var(--primary-color);
             color: white;
-            padding: 1.2rem 3.5rem;
+            padding: 1.2rem 3rem;
             text-decoration: none;
             font-weight: bold;
             border-radius: 60px;
-            font-size: 1.4rem;
-            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
-            transition: all 0.3s;
+            transition: 0.3s;
+            font-size: 1.3rem;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.5);
-            background-color: #cc0000;
+        .btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(255, 68, 68, 0.4); 
         }
 
-        .version-info {
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: #888;
+        /* 履歴・アーカイブセクション */
+        .history-item {
+            background: var(--card-bg);
+            padding: 1.8rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid #222;
         }
 
-        /* フッター */
-        footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            border-top: 1px solid #333;
-            font-size: 0.9rem;
-            color: #666;
+        .v-label {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            display: block;
         }
 
-        .badge {
+        .date-label { font-size: 0.85rem; color: #888; margin-bottom: 10px; display: block; }
+
+        .archive-dl-btn {
             display: inline-block;
-            padding: 0.2rem 0.8rem;
-            background: #333;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
+            margin-top: 15px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid #444;
+            padding: 8px 20px;
+            border-radius: 8px;
+            transition: 0.2s;
         }
+
+        .archive-dl-btn:hover {
+            background: #333;
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        footer { text-align: center; padding: 4rem; opacity: 0.5; font-size: 0.8rem; }
+        
+        ul { padding-left: 1.2rem; }
+        li { margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="badge">Experimental Project</div>
-    <h1 class="logo-text">LegacyTube</h1>
-    <p class="subtitle">Android 5.0 世代の Xperia に、再び光を。</p>
+    <h1>LegacyTube Download Center</h1>
+    <p>Xperia Tablet (Z2/Z4) 向け YouTube プレイヤー</p>
 </header>
 
 <div class="container">
-    <section>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>🚫 広告を自動カット</h3>
-                <p>内蔵された AdBlock スクリプトにより、動画視聴を邪魔する広告を自動的に除去します。</p>
-            </div>
-            <div class="feature-card">
-                <h3>🔑 ログイン対応</h3>
-                <p>独自の WebView 同期システムを搭載。Android 5.0 でも安全に Google アカウントでログイン可能です。</p>
-            </div>
-            <div class="feature-card">
-                <h3>🔋 軽量・高速</h3>
-                <p>Xperia Z2 / Z4 Tablet のスペックを最大限に活かすため、無駄を削ぎ落とした軽量設計を採用。</p>
-            </div>
-        </div>
-    </section>
 
-    <div class="download-box">
-        <h2>アプリを手に入れる</h2>
-        <p>下のボタンをクリックして、Google ドライブから APK ファイルをダウンロードしてください。</p>
+    <div class="main-dl">
+        <span style="color:var(--primary-color); font-weight:bold; letter-spacing: 2px;">LATEST STABLE</span>
+        <h2 style="border:none; padding:0; margin: 10px 0;">LegacyTube v1.1</h2>
+        <p>フルスクリーン対応、独自アイコン採用、安定性向上</p>
         <br>
-        <a href="https://drive.google.com/file/d/18TbxRPPCIujzhm70zz_8WwtvFRs3Gafz/view?usp=sharing" target="_blank" class="btn">Download APK</a>
-        <p class="version-info">
-            Version 1.0.0 (Stable) | ターゲット: Android 5.0+<br>
-            対応確認済み: Xperia Z2 Tablet (SGP511/512), Xperia Z4 Tablet
-        </p>
+        <a href="https://drive.google.com/file/d/1hBX6sACznQ6FCVPZO7Rb414vY0BUpSIA/view?usp=sharing" target="_blank" class="btn">v1.1 をダウンロード</a>
     </div>
+
+    <h2>Archive / Versions History</h2>
+    
+    <div class="history-section">
+        
+        <div class="history-item">
+            <span class="v-label">v1.1 (Current)</span>
+            <span class="date-label">2026/03/13 Release</span>
+            <ul>
+                <li><strong>フルスクリーン対応:</strong> Android 5.0 WebView での全画面再生を実現。</li>
+                <li><strong>ビジュアル更新:</strong> レトロテレビ型の新アプリアイコンを適用。</li>
+                <li><strong>コード最適化:</strong> 戻るボタンの挙動やメモリ使用量を改善。</li>
+            </ul>
+        </div>
+
+        <div class="history-item">
+            <span class="v-label">v1.0 (Legacy)</span>
+            <span class="date-label">2026/03/10 Release</span>
+            <ul>
+                <li><strong>ログイン突破:</strong> 古い端末でも Google ログインを可能に。</li>
+                <li><strong>広告カット:</strong> 動画再生時の広告を自動的にブロック。</li>
+                <li><strong>軽量化:</strong> Xperia Z2 Tablet のスペックに最適化した設計。</li>
+            </ul>
+            <a href="https://drive.google.com/file/d/18TbxRPPCIujzhm70zz_8WwtvFRs3Gafz/view?usp=drive_link" target="_blank" class="archive-dl-btn">v1.0 をダウンロード (APK)</a>
+        </div>
+
+        <div class="history-item" style="opacity: 0.6;">
+            <span class="v-label">Project Alpha</span>
+            <span class="date-label">2026/02 Started</span>
+            <p>Xperia 救済プロジェクト「LegacyTube」始動。</p>
+        </div>
+
+    </div>
+
 </div>
 
 <footer>
-    <p>Developed by <strong>hukuoka_555</strong></p>
-    <p>Dedicated to the fans. ⚓️⚔️ Keep coding, Keep dreaming.</p>
+    <p>Developed by hukuoka_555</p>
+    <p>Built for Noelist & Aqua Fans. ⚓️⚔️</p>
 </footer>
 
 </body>
