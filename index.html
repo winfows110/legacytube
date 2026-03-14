@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LegacyTube - Download Center</title>
+    <title>LegacyTube - Project Archive</title>
     <style>
         :root {
             --primary-color: #ff4444;
             --bg-color: #0f0f0f;
             --text-color: #ffffff;
             --card-bg: #1e1e1e;
-            --history-line: #444;
+            --accent-blue: #00d2ff;
+            --noel-silver: #c0c0c0;
         }
 
         body {
@@ -22,145 +23,198 @@
         }
 
         header {
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
             background: linear-gradient(135deg, #2c0000 0%, #0f0f0f 100%);
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        h2 { border-left: 4px solid var(--primary-color); padding-left: 15px; margin-top: 3rem; }
-
-        /* メインダウンロードボタン */
-        .main-dl {
+        /* メインダウンロードカード */
+        .main-release {
             text-align: center;
-            padding: 3.5rem;
+            padding: 3rem;
             background: linear-gradient(135deg, #252525 0%, #1a1a1a 100%);
             border-radius: 24px;
-            border: 1px solid #333;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 15px 40px rgba(255, 68, 68, 0.2);
+            margin-bottom: 4rem;
         }
 
         .btn {
             display: inline-block;
             background: var(--primary-color);
             color: white;
-            padding: 1.2rem 3rem;
+            padding: 1.4rem 3.5rem;
             text-decoration: none;
             font-weight: bold;
             border-radius: 60px;
-            transition: 0.3s;
-            font-size: 1.3rem;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.4rem;
+            margin: 1.5rem 0;
         }
 
         .btn:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 8px 20px rgba(255, 68, 68, 0.4); 
+            transform: scale(1.05); 
+            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.5); 
         }
 
-        /* 履歴・アーカイブセクション */
+        /* タイムラインセクション */
+        h2 {
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 4rem;
+            font-size: 1.8rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 2rem;
+        }
+
         .history-item {
             background: var(--card-bg);
-            padding: 1.8rem;
-            border-radius: 16px;
+            padding: 2rem;
+            border-radius: 20px;
             margin-bottom: 2rem;
-            border: 1px solid #222;
+            border: 1px solid #333;
+            transition: 0.3s;
         }
 
-        .v-label {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            display: block;
-        }
-
-        .date-label { font-size: 0.85rem; color: #888; margin-bottom: 10px; display: block; }
-
-        .archive-dl-btn {
-            display: inline-block;
-            margin-top: 15px;
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.95rem;
-            border: 1px solid #444;
-            padding: 8px 20px;
-            border-radius: 8px;
-            transition: 0.2s;
-        }
-
-        .archive-dl-btn:hover {
-            background: #333;
-            color: white;
+        .history-item:hover {
             border-color: var(--primary-color);
+            background: #252525;
         }
 
-        footer { text-align: center; padding: 4rem; opacity: 0.5; font-size: 0.8rem; }
-        
-        ul { padding-left: 1.2rem; }
-        li { margin-bottom: 5px; }
+        .v-badge {
+            display: inline-block;
+            background: #444;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .v-latest-badge { 
+            background: var(--primary-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 68, 68, 0); }
+        }
+
+        ul { padding-left: 20px; margin: 1rem 0; }
+        li { margin-bottom: 0.5rem; }
+
+        .dl-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dl-link:hover { text-decoration: underline; }
+
+        .footer-note {
+            margin-top: 5rem;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+            padding: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 3rem; 
+            font-size: 0.9rem;
+            color: var(--noel-silver);
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>LegacyTube Download Center</h1>
-    <p>Xperia Tablet (Z2/Z4) 向け YouTube プレイヤー</p>
+    <h1>LegacyTube Archive</h1>
+    <p>Xperia Z2 / Z4 Tablet 最適化プレイヤー</p>
 </header>
 
 <div class="container">
 
-    <div class="main-dl">
-        <span style="color:var(--primary-color); font-weight:bold; letter-spacing: 2px;">LATEST STABLE</span>
-        <h2 style="border:none; padding:0; margin: 10px 0;">LegacyTube v1.1</h2>
-        <p>フルスクリーン対応、独自アイコン採用、安定性向上</p>
-        <br>
-        <a href="https://drive.google.com/file/d/1hBX6sACznQ6FCVPZO7Rb414vY0BUpSIA/view?usp=sharing" target="_blank" class="btn">v1.1 をダウンロード</a>
+    <section class="main-release">
+        <span class="v-badge v-latest-badge">LATEST RELEASE</span>
+        <h2 style="justify-content: center; border:none; margin: 10px 0; padding:0; font-size: 2.5rem;">Version 1.2</h2>
+        <p style="font-size: 1.1rem; opacity: 0.9;">
+            「2024年8月28日。あの日の感動を、Xperiaの大画面で何度でも。」<br>
+            アーカイブ視聴の安定性を極限まで高めた、エンジニア渾身のアップデート。
+        </p>
+        <a href="https://drive.google.com/file/d/1UGlbWf1NjSxIYwv5gahj9-816sN-ox5x/view?usp=sharing" target="_blank" class="btn">LegacyTube v1.2 を入手</a>
+        <p style="font-size: 0.8rem; opacity: 0.7;">※Googleログイン・1080p再生・全画面バグ修正済み</p>
+    </section>
+
+    <h2>📜 開発の歩み (Project History)</h2>
+
+    <div class="timeline">
+
+        <div class="history-item">
+            <span class="v-badge v-latest-badge">v1.2</span>
+            <h3>Stability & Login Fix</h3>
+            <p>卒業ライブアーカイブの安定視聴と、最新のGoogleセキュリティへの適合を目的とした重要更新。</p>
+            <ul>
+                <li><strong>ログインの安定化:</strong> 最新のUser Agentを適用し、ログインエラーを回避。</li>
+                <li><strong>再生の最適化:</strong> GPUハードウェア加速を強制。高画質ライブ特有の「無限くるくる」を大幅に軽減。</li>
+                <li><strong>全画面バグ修正:</strong> 全画面表示への切り替え時に画面が消える致命的な現象を解消。</li>
+            </ul>
+            <a href="https://drive.google.com/file/d/1UGlbWf1NjSxIYwv5gahj9-816sN-ox5x/view?usp=sharing" class="dl-link">📥 v1.2 をダウンロード</a>
+        </div>
+
+        <div class="history-item">
+            <span class="v-badge">v1.1</span>
+            <h3>The Fullscreen Update</h3>
+            <p>10.1インチの大画面をフルに活かすためのアップデート。</p>
+            <ul>
+                <li><strong>全画面表示対応:</strong> ナビゲーションバーを隠すイマーシブモードを実装。</li>
+                <li><strong>アイコン刷新:</strong> オリジナルの「レトロテレビ型」アイコンを採用し、ホーム画面を彩る。</li>
+            </ul>
+            <a href="https://drive.google.com/file/d/1hBX6sACznQ6FCVPZO7Rb414vY0BUpSIA/view?usp=sharing" class="dl-link">📥 v1.1 をダウンロード</a>
+        </div>
+
+        <div class="history-item">
+            <span class="v-badge">v1.0</span>
+            <h3>Initial Release</h3>
+            <p>プロジェクトの始まり。Android 5.0 (Lollipop) 端末に再び命を吹き込む。</p>
+            <ul>
+                <li><strong>基礎構築:</strong> 低スペック端末でも動作する軽量ブラウザエンジンの構築。</li>
+                <li><strong>広告ブロック:</strong> 視聴体験を妨げない快適な環境を実装。</li>
+                <li><strong>ログイン機能:</strong> YouTubeアカウントとの連携を初回実現。</li>
+            </ul>
+            <a href="https://drive.google.com/file/d/18TbxRPPCIujzhm70zz_8WwtvFRs3Gafz/view?usp=drive_link" class="dl-link">📥 v1.0 (初期版) をダウンロード</a>
+        </div>
+
     </div>
 
-    <h2>Archive / Versions History</h2>
-    
-    <div class="history-section">
-        
-        <div class="history-item">
-            <span class="v-label">v1.1 (Current)</span>
-            <span class="date-label">2026/03/13 Release</span>
-            <ul>
-                <li><strong>フルスクリーン対応:</strong> Android 5.0 WebView での全画面再生を実現。</li>
-                <li><strong>ビジュアル更新:</strong> レトロテレビ型の新アプリアイコンを適用。</li>
-                <li><strong>コード最適化:</strong> 戻るボタンの挙動やメモリ使用量を改善。</li>
-            </ul>
-        </div>
-
-        <div class="history-item">
-            <span class="v-label">v1.0 (Legacy)</span>
-            <span class="date-label">2026/03/10 Release</span>
-            <ul>
-                <li><strong>ログイン突破:</strong> 古い端末でも Google ログインを可能に。</li>
-                <li><strong>広告カット:</strong> 動画再生時の広告を自動的にブロック。</li>
-                <li><strong>軽量化:</strong> Xperia Z2 Tablet のスペックに最適化した設計。</li>
-            </ul>
-            <a href="https://drive.google.com/file/d/18TbxRPPCIujzhm70zz_8WwtvFRs3Gafz/view?usp=drive_link" target="_blank" class="archive-dl-btn">v1.0 をダウンロード (APK)</a>
-        </div>
-
-        <div class="history-item" style="opacity: 0.6;">
-            <span class="v-label">Project Alpha</span>
-            <span class="date-label">2026/02 Started</span>
-            <p>Xperia 救済プロジェクト「LegacyTube」始動。</p>
-        </div>
-
+    <div class="footer-note">
+        <p>
+            このアプリは個人開発のプロジェクトであり、特定の企業や団体とは関係ありません。<br>
+            愛着のあるデバイスをいつまでも使い続けるために、開発を続けています。
+        </p>
     </div>
 
 </div>
 
 <footer>
-    <p>Developed by hukuoka_555</p>
-    <p>Built for Noelist & Aqua Fans. ⚓️⚔️</p>
+    <p>Developed by hukuoka_555 | ⚓️⚔️ のえりすと団員エンジニア</p>
 </footer>
 
 </body>
